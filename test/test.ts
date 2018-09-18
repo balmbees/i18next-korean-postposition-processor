@@ -111,4 +111,9 @@ describe("basic replacement test", () => {
         // commonly ignore contents in paren.
         assert.equal(process("니체(독일의 철학자)[[은]] 이렇게 말했다."), "니체(독일의 철학자)는 이렇게 말했다.");
     });
+
+    it("ignore html tags", () => {
+      assert.equal(process("<span>아이유</span>[[이]]"), "<span>아이유</span>가");
+      assert.equal(process("아이돌 <strong>레드벨벳</strong>[[가]] 인기가 많다."), "아이돌 <strong>레드벨벳</strong>이 인기가 많다.");
+    });
 });

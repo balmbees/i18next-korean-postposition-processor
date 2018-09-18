@@ -2,6 +2,7 @@ import { PostPositionMap } from "./consts";
 import TestHangul from "./testers/hangul";
 import TestNumber from "./testers/number";
 import TestKana from "./testers/kana";
+import HtmlTagModifier from "./modifiers/html";
 import ParenthesisModifier from "./modifiers/parenthesis";
 
 // boolean - found
@@ -16,7 +17,8 @@ const tests: Tester[] = [
 
 export type Modifier = (str: string) => string;
 const modifiers: Modifier[] = [
-    ParenthesisModifier
+    ParenthesisModifier,
+    HtmlTagModifier,
 ];
 
 export function appendTester(tester: Tester, prior = false) {
